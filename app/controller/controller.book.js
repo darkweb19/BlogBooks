@@ -13,13 +13,18 @@ exports.addBook = (req, res) => {
 
 //storing book in database
 exports.store = async (req, res) => {
-	const book = new Book({
-		book: req.body.name,
-		category: req.body.category,
-		author: req.body.author,
-	});
-	await book.save();
-	res.redirect("/book");
+	try {
+		const book = new Book({
+			book: req.body.name,
+			category: req.body.category,
+			author: req.body.author,
+		});
+		await book.save();
+		res.redirect("/book");
+	} catch (err) {
+		res.redirect("/book");
+		console.log(err.message);
+	}
 };
 
 //deleting book from database

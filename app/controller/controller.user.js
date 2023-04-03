@@ -9,14 +9,19 @@ exports.usrList = async (req, res) => {
 
 //store user in database
 exports.store = async (req, res) => {
-	const password = await bcrypt.hash(req.body.password, 10);
-	const user = new User({
-		name: req.body.name,
-		email: req.body.email,
-		password: password,
-	});
-	await user.save();
-	res.redirect("/login");
+	try {
+		const password = await bcrypt.hash(req.body.password, 10);
+		const user = new User({
+			name: req.body.name,
+			email: req.body.email,
+			password: password,
+		});
+		await user.save();
+		res.redirect("/login");
+	} catch (err) {
+		res.redirect("/");
+		console.log(err.message);
+	}
 };
 
 //shows the register page

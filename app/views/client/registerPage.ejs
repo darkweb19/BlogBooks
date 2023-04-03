@@ -10,41 +10,60 @@
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 			crossorigin="anonymous"
 		/>
+		<style>
+			.container {
+				margin-top: 40px;
+				height: 75%;
+				width: 40%;
+				border-radius: 10px;
+				box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+					rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+					rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+			}
+		</style>
 	</head>
 
 	<body class="vh-100">
-		<div class="container h-100">
+		<div class="container">
 			<div class="row h-100 justify-content-center align-items-center">
-				<form class="col-6 p-4 border" method="POST" action="/">
+				<form
+					class="form p-5 col-6 h-100 w-100"
+					style="border-color: 1px solid red"
+					method="POST"
+					action="/"
+				>
 					<h1 class="text-center">Register Yourself</h1>
 					<div class="form-group mb-3">
-						<label for="email">Name</label>
+						<label for="email">Name </label>
 						<input
 							type="text"
 							class="form-control"
 							id="email"
 							placeholder="Name"
 							name="name"
+							required
 						/>
 					</div>
 					<div class="form-group mb-3">
-						<label for="email">Email</label>
+						<label for="email">Email </label>
 						<input
 							type="text"
 							class="form-control"
 							id="email"
 							placeholder="email"
 							name="email"
+							required
 						/>
 					</div>
 					<div class="form-group mb-3">
-						<label for="password">Password</label>
+						<label for="password">Password </label>
 						<input
 							type="password"
 							class="form-control"
 							id="password"
 							placeholder="password"
 							name="password"
+							required
 						/>
 					</div>
 					<button class="btn btn-primary" type="submit">

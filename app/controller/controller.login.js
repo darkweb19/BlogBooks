@@ -8,18 +8,17 @@ exports.login = (req, res) => {
 
 //for authentication
 exports.attemptLogin = async (req, res) => {
-	const { email, password } = req.body;
-
 	//wrapped in try catch if app crashes
 	try {
+		const { email, password } = req.body;
 		const user = await User.findOne({ email: email });
 		const isValid = await bcrypt.compare(password, user.password);
 		//if only password is wrong
 		if (user && !isValid) {
-			return res.send("Wrong Password");
+			return res.render("client/wrongPw");
 		}
 		//authentication
-		if (isValid) {
+		if (user && isValid) {
 			req.session.user = true;
 			return res.redirect("/user");
 		} else {

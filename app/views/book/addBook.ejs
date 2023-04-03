@@ -10,12 +10,28 @@
 			integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 			crossorigin="anonymous"
 		/>
+		<style>
+			.container {
+				height: 70%;
+				width: 40%;
+				margin-top: 5rem;
+				padding: 20px;
+				border-radius: 10px;
+				box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+					rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+					rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+			}
+		</style>
 	</head>
 
 	<body class="vh-100">
-		<div class="container h-100">
+		<div class="container">
 			<div class="row h-100 justify-content-center align-items-center">
-				<form class="col-6 p-4 border" method="POST" action="/book">
+				<form
+					class="col-6 p-4 h-100 w-100"
+					method="POST"
+					action="/book"
+				>
 					<h1 class="text-center">Add Book</h1>
 					<div class="form-group mb-3">
 						<label for="book">Book Name</label>
@@ -25,6 +41,7 @@
 							id="email"
 							placeholder="name"
 							name="name"
+							required
 						/>
 					</div>
 					<div class="form-group mb-3">
@@ -35,6 +52,7 @@
 							id="email"
 							placeholder="category"
 							name="category"
+							required
 						/>
 					</div>
 					<div class="form-group mb-3">
@@ -45,9 +63,13 @@
 							id="password"
 							placeholder="author"
 							name="author"
+							required
 						/>
 					</div>
 					<button class="btn btn-primary" type="submit">Add</button>
+					<a href="/book" class="btn btn-success" type="submit"
+						>Back</a
+					>
 				</form>
 			</div>
 		</div>
