@@ -25,7 +25,7 @@ exports.attemptLogin = async (req, res) => {
 			return res.send("login failed");
 		}
 	} catch (err) {
-		res.redirect("/login");
+		res.render("client/login", { message: "noUser" });
 		console.log(err.message);
 	}
 };
