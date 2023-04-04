@@ -33,7 +33,7 @@ exports.store = async (req, res) => {
 
 //shows the register page
 exports.registerPage = (req, res) => {
-	res.render("client/registerPage");
+	res.render("client/registerPage", { message: "nothing" });
 };
 
 //delete user
