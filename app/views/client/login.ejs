@@ -14,7 +14,7 @@
 			.container {
 				height: 60%;
 				width: 40%;
-				margin-top: 5rem;
+				margin-top: 3rem;
 				padding: 20px;
 				border-radius: 10px;
 				box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
@@ -25,6 +25,20 @@
 	</head>
 
 	<body class="vh-100">
+		<% if(message == "pwWrong") {%>
+		<div
+			class="alert alert-danger h7 d-flex justify-content-center w-100 alert-dismissible fade show"
+			role="alert"
+		>
+			<strong>Error! </strong> The password you entered was wrong
+			<button
+				type="button"
+				class="btn-close"
+				data-bs-dismiss="alert"
+				aria-label="Close"
+			></button>
+		</div>
+		<% } %>
 		<div class="container">
 			<div class="row h-100 justify-content-center align-items-center">
 				<form

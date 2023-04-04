@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 //rendering login page
 exports.login = (req, res) => {
-	res.render("client/login");
+	res.render("client/login", { message: "nothing" });
 };
 
 //for authentication
@@ -15,7 +15,7 @@ exports.attemptLogin = async (req, res) => {
 		const isValid = await bcrypt.compare(password, user.password);
 		//if only password is wrong
 		if (user && !isValid) {
-			return res.render("client/wrongPw");
+			return res.render("client/login", { message: "pwWrong" });
 		}
 		//authentication
 		if (user && isValid) {
