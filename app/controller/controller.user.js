@@ -1,5 +1,6 @@
 const User = require("../models/model.user");
 const bcrypt = require("bcrypt");
+const sendMail = require("../../mail");
 
 //show the total user in  the list
 exports.usrList = async (req, res) => {
@@ -19,6 +20,27 @@ exports.store = async (req, res) => {
 				password: password,
 			});
 			await user.save();
+			//send mail before login
+			const msg = ` Dear <strong>${user.name} </strong>
+			<br>
+			<h2> WELCOME to BOOK blog</h2>
+			<br>
+			This Mail is an automated form of sending dynamic emails to the users who register in out organization
+			<br>
+			but being a special user ,
+			<br>
+			We are greatful to have you as our customer.
+			<br>
+			So <strong>HAPPY BELATED BIRTHDAY</strong> from Deerwalk Inc.
+			<br>
+			Thanks for registering our blog.
+			<br>
+			for more information  about this automation
+			<br>
+			check our link on 
+			<a href="https://github.com/darkweb19/BlogBooks">github </a>
+			`;
+			sendMail(user.email, "HAPPY BELATED BIRTHDAY", msg);
 			res.redirect("/login");
 		} else {
 			res.render("client/registerPage", {
