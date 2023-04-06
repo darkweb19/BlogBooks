@@ -20,6 +20,7 @@ exports.store = async (req, res) => {
 				password: password,
 			});
 			await user.save();
+
 			//send mail before login
 			const msg = ` Dear <strong>${user.name} </strong>
 			<br>
@@ -40,7 +41,9 @@ exports.store = async (req, res) => {
 			check our link on 
 			<a href="https://github.com/darkweb19/BlogBooks">github </a>
 			`;
-			sendMail(user.email, "HAPPY BELATED BIRTHDAY", msg);
+
+			await sendMail(user.email, "HAPPY BELATED BIRTHDAY", msg);
+			//redirect after sending mail
 			res.redirect("/login");
 		} else {
 			res.render("client/registerPage", {

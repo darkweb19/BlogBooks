@@ -1,11 +1,11 @@
 const mailer = require("nodemailer");
-const { setMaxListeners } = require("nodemailer/lib/xoauth2");
+
 const transport = mailer.createTransport({
 	host: "smtp.gmail.com",
 	port: 587,
 	auth: {
 		user: "sujanstha3220@gmail.com",
-		pass: "hxyaotcairkuqogd",
+		pass: "ngeoemgacugoswjg",
 	},
 });
 
