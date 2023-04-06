@@ -5,11 +5,7 @@ const transport = mailer.createTransport({
 	port: 587,
 	auth: {
 		user: "sujanstha3220@gmail.com",
-<<<<<<< HEAD
-		pass: "ngeoemgacugoswjg",
-=======
-		pass: "your_appPassword",
->>>>>>> 8051ed187a7cd7d72a74224a68e2ae9dcd638405
+		pass: "your_app_password",
 	},
 });
 
